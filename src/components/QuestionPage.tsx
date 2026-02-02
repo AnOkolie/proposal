@@ -1,9 +1,10 @@
-import { Title, Container, Button } from "@mantine/core";
+import { Title, Container, Button, Text } from "@mantine/core";
 import { useEffect, useState } from "react";
 
 export const QuestionPage = () => {
   const [videoSrc, setVideoSrc] = useState("");
   const [saidNo, setSaidNo] = useState(false);
+  const [saidYes, setSaidYes] = useState(false);
 
   useEffect(() => {
     setVideoSrc(
@@ -44,6 +45,38 @@ export const QuestionPage = () => {
       </Container>
     );
   }
+  if (saidYes) {
+    return (
+      <Container>
+        <img
+          src="/meme.jpg"
+          alt="Yes"
+          className="floating"
+          style={{
+            position: "fixed",
+            top: "10%",
+            left: "10%",
+            pointerEvents: "none", // allows clicks to go through
+          }}
+        />
+        <br></br>
+        <Text>Look at that, we are agreeing on something after all</Text>
+        <style>{`
+        @keyframes floatAround {
+          0% { transform: translate(0, 0); }
+          25% { transform: translate(30px, 50px); }
+          50% { transform: translate(-20px, 80px); }
+          75% { transform: translate(40px, -30px); }
+          100% { transform: translate(0, 0); }
+        }
+
+        .floating {
+          animation: floatAround 8s ease-in-out infinite;
+        }
+      `}</style>
+      </Container>
+    );
+  }
   return (
     <Container>
       <Title>You will be my Valentine</Title>
@@ -57,7 +90,8 @@ export const QuestionPage = () => {
         allowFullScreen
       />
       <br />
-      <Button>Yes</Button> <Button onClick={() => setSaidNo(true)}>No</Button>
+      <Button onClick={() => setSaidYes(true)}>Yes</Button>{" "}
+      <Button onClick={() => setSaidNo(true)}>No</Button>
     </Container>
   );
 };

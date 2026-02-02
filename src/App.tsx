@@ -4,7 +4,7 @@ import { Notifications } from "@mantine/notifications";
 import { landingPage as LandingPage } from "./components/landingPage";
 import { StartingPage } from "./components/StartingPage";
 import { QuestionPage } from "./components/QuestionPage";
-import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export default function App() {
   return (
@@ -15,9 +15,9 @@ export default function App() {
           <h1>Trivia</h1>
         </div>
         <Routes>
-          <Route path="/" element={<LandingPage />} />
+          <Route path="/proposal/" element={<LandingPage />} />
           <Route path="/game" element={<StartingPage />} />
-          <Route path="/proposal" element={<QuestionPage />} />
+          <Route path="/question" element={<QuestionPage />} />
         </Routes>
       </BrowserRouter>
     </MantineProvider>
