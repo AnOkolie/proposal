@@ -17,7 +17,7 @@ export const QuestionPage = () => {
     return (
       <Container>
         <img
-          src="/horse.jpeg"
+          src="https://anokolie.github.io/proposal/horse.jpeg"
           alt="No"
           className="floating"
           style={{
@@ -49,7 +49,7 @@ export const QuestionPage = () => {
     return (
       <Container>
         <img
-          src="/meme.jpg"
+          src="https://anokolie.github.io/proposal/meme.jpeg"
           alt="Yes"
           className="floating"
           style={{

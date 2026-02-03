@@ -1,4 +1,4 @@
-import { Box, Button, Text, Image } from "@mantine/core";
+import { Box, Button, Text } from "@mantine/core";
 import { useNavigate } from "react-router-dom";
 
 export const landingPage = () => {
@@ -13,7 +13,9 @@ export const landingPage = () => {
       </Text>
       <br></br>
       <Button onClick={handleClick}>Start Game</Button>
-      <Image radius="md" src="/legos.jpeg"></Image>
+      <br></br>
+      <img src="https://anokolie.github.io/proposal/legos_2.jpeg"></img>
+      <br />
     </Box>
   );
 };

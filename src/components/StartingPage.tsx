@@ -20,7 +20,7 @@ export const StartingPage = () => {
   const questions = [
     {
       id: 1,
-      text: "What's your name?",
+      text: "First of all, What's the password ?",
       answer: "Ibukun",
       options: [],
       answerType: "text",
@@ -89,7 +89,7 @@ export const StartingPage = () => {
       message,
       color: type === "success" ? "teal" : "red",
       icon: type === "success" ? <IconCheck size={18} /> : <IconX size={18} />,
-      autoClose: 2500,
+      autoClose: 1500,
       withCloseButton: false,
       radius: "xl",
       styles: (theme) => ({
@@ -109,10 +109,24 @@ export const StartingPage = () => {
     if (!question || !answers[index]) return;
 
     if (isCorrect) {
-      showToast("success", "Well done!");
+      if (question.id === 1) {
+        showToast("success", "At least we know old age aint getting to you");
+      }
+      if (question.id === 2) {
+        showToast("success", "Youve reached self awareness?");
+      }
+      if (question.id === 3) {
+        showToast("success", "Lmaooo i should screenshot this");
+      }
+      if (question.id === 4) {
+        showToast("success", "OMG! really?");
+      }
     } else {
+      if (question.id === 1 && answers[index] !== "Ibukun") {
+        showToast("error", "Its your name silly, Queen Buks???");
+      }
       // Specific "lie" cases
-      if (question.id === 2 && answers[index] === "23") {
+      else if (question.id === 2 && answers[index] === "23") {
         showToast("error", "It's a Sunday, be honest!");
       } else if (question.id === 4 && answers[index] === "Ibukun") {
         showToast("error", "Insert eye roll here 🙄");
@@ -137,9 +151,10 @@ export const StartingPage = () => {
       <Container size="sm" mt="xl">
         <Paper p="xl" radius="md" withBorder>
           <Alert color="blue" title="Quiz complete 🎉">
-            You’ve completed the quiz and unlocked a reward.
+            You’ve completed the quiz and unlocked a reward. To the real reason
+            for all of this 😉
           </Alert>
-          <Button mt="md" onClick={() => navigate("/proposal")}>
+          <Button mt="md" onClick={() => navigate("/question")}>
             Continue
           </Button>
         </Paper>
